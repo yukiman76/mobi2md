@@ -50,7 +50,10 @@ def convert_all_mobi_to_md(directory):
             if file.endswith('.mobi'):
                 mobi_file = os.path.join(root, file)
                 md_file = Path(mobi_file).with_suffix('.md')
-                convert_mobi_to_md(mobi_file, md_file)
+                try:
+                    convert_mobi_to_md(mobi_file, md_file)
+                except:
+                    print(f"Failed to convert {mobi_file}")
 
 # Replace 'books_directory' with your target directory
 books_directory = 'books'
