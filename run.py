@@ -20,8 +20,15 @@ def convert_mobi_to_md(mobi_file, output_md_file):
                 break
 
     if html_file:
-        with open(html_file, 'r', encoding='utf-8') as f:
-            html_content = f.read()
+        try:
+            # Try reading the file with UTF-8 encoding
+            with open(html_file, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+        except UnicodeDecodeError:
+            # If there is a UnicodeDecodeError, try a different encoding or ignore errors
+            print(f"Warning: UTF-8 decoding failed for {html_file}. Trying a fallback encoding.")
+            with open(html_file, 'r', encoding='ISO-8859-1', errors='ignore') as f:
+                html_content = f.read()
 
         # Convert HTML to markdown
         md_content = md(html_content)
