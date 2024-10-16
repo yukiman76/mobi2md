@@ -52,6 +52,8 @@ def convert_all_mobi_to_md(directory):
                 md_file = Path(mobi_file).with_suffix('.md')
                 try:
                     convert_mobi_to_md(mobi_file, md_file)
+                except KeyboardInterrupt as ekb:
+                    sys.exit(0)
                 except:
                     print(f"Failed to convert {mobi_file}")
 
