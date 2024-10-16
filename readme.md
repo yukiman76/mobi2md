@@ -50,7 +50,7 @@ The script will find all `.mobi` files within the specified directory and its su
    The resulting Markdown content is saved with the same file name as the original `.mobi` file but with a `.md` extension.
 
 4. **Cleanup**:  
-   Temporary files created during the extraction process are automatically removed after the conversion is complete.
+   Use the included delete_non_md_files.sh to clean the old mobi files (and all others aswell)
 
 ## Example
 
