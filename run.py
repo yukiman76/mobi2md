@@ -1,4 +1,5 @@
 import os
+import sys
 import mobi
 from markdownify import markdownify as md
 from pathlib import Path
