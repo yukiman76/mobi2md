@@ -52,7 +52,8 @@ def convert_all_mobi_to_md(directory):
                 mobi_file = os.path.join(root, file)
                 md_file = Path(mobi_file).with_suffix('.md')
                 try:
-                    convert_mobi_to_md(mobi_file, md_file)
+                    if not os.path.exists(md_file):
+                        convert_mobi_to_md(mobi_file, md_file)
                 except KeyboardInterrupt as ekb:
                     sys.exit(0)
                 except:
